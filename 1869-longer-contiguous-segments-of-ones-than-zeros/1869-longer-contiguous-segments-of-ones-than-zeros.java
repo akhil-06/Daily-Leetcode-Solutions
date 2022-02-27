@@ -3,6 +3,7 @@ class Solution {
     //Max consitive ones
     //Max consicutive zeros
     // can be applied to string or array, if binary means only 0 and 1
+    //check-if-binary-string-has-at-most-one-segment-of-ones/
     public boolean checkZeroOnes(String s) {
         int longestZeros = 0, longestOnes = 0, currentZeros = 0, currentOnes = 0;
 	for(int i=0;i<s.length();i++) {
