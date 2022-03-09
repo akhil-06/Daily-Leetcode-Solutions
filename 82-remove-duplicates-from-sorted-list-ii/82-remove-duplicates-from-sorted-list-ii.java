@@ -10,15 +10,37 @@
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-        if(head == null || head.next == null) return head;
-        if (head.next != null && head.val == head.next.val) {
-        while (head.next != null && head.val == head.next.val) {
-            head = head.next;
-        }
-        return deleteDuplicates(head.next);
-    } else {
-        head.next = deleteDuplicates(head.next);
+        
+        if (head == null || head.next == null) {
+        return head;
     }
-    return head;
+    ListNode p, dummy = new ListNode(0);
+    p = dummy;
+    dummy.next = head;
+    while (head != null && head.next != null) {
+        if (head.val == head.next.val) {
+            while (head.next != null && head.val == head.next.val) {
+                head = head.next;
+            }
+            head = head.next;
+            p.next = head;
+        } else {
+            head = head.next;
+            p = p.next;
+        }
+    }
+    return dummy.next;
+        
+        //recursion
+    //     if(head == null || head.next == null) return head;
+    //     if (head.next != null && head.val == head.next.val) {
+    //     while (head.next != null && head.val == head.next.val) {
+    //         head = head.next;
+    //     }
+    //     return deleteDuplicates(head.next);
+    // } else {
+    //     head.next = deleteDuplicates(head.next);
+    // }
+    // return head;
     }
 }
