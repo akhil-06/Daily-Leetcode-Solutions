@@ -9,20 +9,21 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-//TC -> O(n) SC->O(1)
+
 var reverseList = function(head) {
     let prev = null;
     let curr = head;
     let next = null;
     
-    while(curr!==null){
+    while(curr!=null){
         //save next 
         next = curr.next;
-        //making link in opposite direction
-        curr.next = prev
-        //incrementation of the next and prev;
+        //reverse 
+        curr.next = prev;
+        //increment the pointers
         prev = curr;
         curr = next;
     }
     return prev;
+
 };
